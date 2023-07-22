@@ -10,13 +10,13 @@ class Usuarios extends Controller{
         $client = service('curlrequest');
 
         try {
-            $response = $client->request('GET', 'https://jsonplaceholder.typicode.com/posts');
+            $response = $client->request('GET', 'https://jsonplaceholder.typicode.com/users');
             $listUsers = json_decode($response->getBody(), true);
             $data['users'] = array();
             foreach ($listUsers as $user) {
                 $data['users'][] = array(
-                    'title' => $user['title'],
-                    'body' => $user['body']
+                    'name' => $user['name'],
+                    'email' => $user['email']
                 );
             }
 
