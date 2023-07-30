@@ -13,7 +13,7 @@
                 <th>ID</th>
                 <th>Nome</th>
                 <th>Email</th>
-                <th>Ação</th>
+                <th colspan="2">Ação</th>
             </tr>
         </thead>
         <tbody>
@@ -23,15 +23,23 @@
                     <td><?php echo $user['name']; ?></td>
                     <td><?php echo $user['email']; ?></td>
                     <td>
-                        <form action="<?= base_url('/usuarios/delete'); ?>" method="post">
+                        <form action="<?= base_url('/user/delete'); ?>" method="post">
                             <input type="hidden" name="user_id" value="<?= $user['id']; ?>">
                             <button type="submit">Deletar</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="<?= base_url('/usuarios/editar-usuarios'); ?>" method="post">
+                            <input type="hidden" name="user_id" value="<?= $user['id']; ?>">
+                            <button type="submit">Editar</button>
                         </form>
                     </td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
+
+    <a href="http://localhost:8080/usuarios/criar-usuarios" >Criar Usuario</a>
 
 </body>
 </html>
